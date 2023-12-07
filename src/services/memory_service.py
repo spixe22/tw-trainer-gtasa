@@ -12,6 +12,6 @@ class MemoryService:
         return buffer.value
 
     def write_memory(self, memory_address: MemoryAddress, value: int, data_type=ctypes.c_int):
-        buffer = data_type()
-        ctypes.windll.kernel32.WriteProcessMemory(self.game_process.handle, memory_address.absolute_address, ctypes.byref(data_type), ctypes.sizeof(data_type))
+        buffer = data_type(value)
+        ctypes.windll.kernel32.WriteProcessMemory(self.game_process.handle, memory_address.absolute_address, ctypes.byref(buffer), ctypes.sizeof(buffer), None)
 
