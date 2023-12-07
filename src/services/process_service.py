@@ -3,6 +3,8 @@ import psutil
 from domains.game_process import GameProcess
 from exceptions import ProcessNotFoundException
 
+PROCESS_ALL_ACCESS = (0x001F0FFF)
+
 class ProcessService:
     @staticmethod
     def get_process_by_name(process_name: str):
